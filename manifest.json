@@ -1,0 +1,43 @@
+{
+    "name": "Translate",
+    "description": "Translate",
+    "version": "1",
+    "manifest_version": 2,
+    "permissions": [
+        "notifications",
+        "tabs",
+        "http://*/*",
+        "https://*/*"
+    ],
+    "background": {
+        "scripts": [
+            "lib/background.js"
+        ],
+        "persistent": true
+    },
+    "commands": {
+        "test": {
+            "suggested_key": {
+                "windows": "Ctrl+Shift+Y",
+                "mac": "Command+Shift+Y",
+                "linux": "Ctrl+Shift+Y"
+            },
+            "description": "Test alert function"
+        }
+    },
+    "content_scripts": [
+        {
+            "js": [
+                "lib/Translate.js"
+            ],
+            "matches": [
+                "*://*/*"
+            ],
+            "run_at": "document_start"
+        }
+    ],
+    "browser_action": {
+        "default_title": "Translate",
+        "default_popup": "popup.html"
+    }
+}
